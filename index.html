@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юбилей Екатерины!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="1.jpeg" alt="Екатерина" class="header-image">
+            <div class="header-text">
+                <h1>Юбилей Екатерины!</h1>
+                <p>Дорогие родственники! С радостью приглашаю вас отпраздновать мой юбилей! Давайте вместе создадим незабываемые воспоминания и поздравим меня с этим важным событием! Жду Вас!</p>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>О праздновании</h2>
+        <p class="info">Приглашаю своих самых близких и родных людей, занимающих большой кусочек в моём сердце. Не забудьте захватить чудесное настроение, капельку юмора и побольше свободного времени, чтобы сполна насладиться праздником!</p>
+
+        <h2>Подтверждение Участия</h2>
+        <div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbtsl1tRBsGWc2OjYKi3yJh0123mKDbEfN5x9mcRKf9y1SzQ/viewform?embedded=true" width="640" height="884" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        </div>
+
+    </section>
+
+    <section>
+        <h2>Место проведения</h2>
+        <div id="map"></div>
+        <p class="info">ул. Лермонтова, 31/5, 2 подъезд, 2 этаж, кв. 28, домофон 28. г. Якутск</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024. Все права защищены.</p>
+    </footer>
+
+    <script charset="utf-8" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script>
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [62.040447, 129.734505],
+                zoom: 16
+            });
+
+            myMap.geoObjects.add(new ymaps.Placemark([62.040447, 129.734505], {
+                balloonContent: 'ул. Лермонтова, 31/5, Якутск'
+            }));
+        }
+    </script>
+</body>
+</html>
