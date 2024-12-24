@@ -19,6 +19,7 @@ header {
 
 .header-content {
     display: flex;
+	flex-direction: column;
     align-items: center; /* Vertically center items */
 }
 
@@ -31,7 +32,7 @@ header {
 }
 
 .header-text {
-    flex: 1;
+    text-align: center;
 }
 
 
@@ -125,4 +126,38 @@ footer {
     font-size: 1.1em;
     line-height: 1.4;
     color: #f5f5dc; /* Light beige text color */
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Further adjust font size for very small screens */
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .info {
+        font-size: 0.85em;
+    }
+}
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .header-image {
+        max-width: 90%; /* Make image take more space on smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
+
+    .info {
+        font-size: 0.9em; /* Slightly smaller text for better fit */
+    }
 }
