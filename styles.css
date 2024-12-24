@@ -1,117 +1,60 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
-    line-height: 1.6;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юбилей Екатерины!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 
-header {
-    background: linear-gradient(135deg, #8e44ad, #9b59b6);
-    padding: 1em; /* Use em for relative sizing */
-    color: #f5f5dc;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center;
-}
+    <header>
+		<div class="header-content">
+			<img src="1.jpeg" alt="Екатерина" class="header-image">
+			<div class="header-text">
+				<h1>Юбилей Екатерины!</h1>
+				<p>Дорогие родственники! С радостью приглашаю вас отпраздновать мой юбилей!  <span class="jubilee-date">03 января 2025 в 15.00</span> Давайте вместе создадим незабываемые воспоминания и поздравим меня с этим важным событием! Жду Вас!</p>
+			</div>
+		</div>
+	</header>
 
-.header-content {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    max-width: 960px; /* Set max width for better centering */
-    margin: 0 auto; /* Center the content */
-}
+    <section>
+        <h2>О праздновании</h2>
+        <p class="info">Приглашаю своих самых близких и родных людей, занимающих большой кусочек в моём сердце. Не забудьте захватить чудесное настроение, капельку юмора и побольше свободного времени, чтобы сполна насладиться праздником!</p>
 
-.header-image {
-    width: 100%;
-    max-width: 300px; /* Max width to prevent image from overflowing */
-    margin-right: 20px;
-    margin-bottom: 1em; /* Add margin below image */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+        <h2>Подтверждение Участия</h2>
+        <div class="google-form">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbtsl1tRBsGWc2OjYKi3yJh0123mKDbEfN5x9mcRKf9y1SzQ/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+        </div>
 
-.header-text {
-    flex-grow: 1; /* Allow text to take up remaining space */
-    text-align: center;
-}
+    </section>
 
-h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 2em;
-    margin-bottom: 0.5em;
-    color: #f5f5dc;
-}
+    <section>
+        <h2>Место проведения</h2>
+        <div id="map"></div>
+        <p class="info">ул. Лермонтова, 31/5, 2 подъезд, 2 этаж, кв. 28, домофон 28. г. Якутск</p>
+    </section>
 
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    color: #8e44ad;
-    margin-bottom: 15px;
-}
+    <footer>
+        <p>&copy; 2024. Все права защищены.</p>
+    </footer>
 
-.info {
-    background-color: #d8bfd8;
-    padding: 10px;
-    border-radius: 5px;
-    color: #333;
-    margin-bottom: 1em;
-}
+    <script charset="utf-8" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script> <script>
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [62.040447, 129.734505],
+                zoom: 16
+            });
 
-section {
-    padding: 1em;
-    margin: 1em auto; /* Center sections */
-    max-width: 960px; /* Set max width for better centering */
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.google-form {
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
-    width: 100%; /* Ensure the container takes full width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-.google-form iframe {
-    width: 100%;
-    height: 400px; /* Or adjust as needed */
-    border: none;
-    display: block; /* Remove any default iframe margins */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-
-footer {
-    background-color: #8e44ad;
-    color: white;
-    padding: 1em;
-    text-align: center;
-}
-
-#map {
-    height: 400px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.header-text p {
-    font-size: 1.1em;
-    line-height: 1.4;
-    color: #f5f5dc;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column; /* Stack header elements vertically */
-    }
-    .header-image {
-        margin-right: 0; /* Remove margin on smaller screens */
-        margin-bottom: 1em;
-    }
-    h1 {
-        font-size: 1.5em;
-    }
-}
+            myMap.geoObjects.add(new ymaps.Placemark([62.040447, 129.734505], {
+                balloonContent: 'ул. Лермонтова, 31/5, Якутск'
+            }));
+        }
+    </script>
+</body>
+</html>
