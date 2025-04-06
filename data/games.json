@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Space Odyssey",
+    "price": 29.99,
+    "description": "Исследуйте галактики в роли капитана корабля",
+    "image": "space-odyssey.jpg"
+  },
+  {
+    "title": "Galaxy Wars",
+    "price": 19.99,
+    "description": "Сразитесь за контроль над вселенной",
+    "image": "galaxy-wars.jpg"
+  }
+]
