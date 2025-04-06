@@ -11,4 +11,10 @@
     "description": "Сразитесь за контроль над вселенной",
     "image": "galaxy-wars.jpg"
   }
+  {
+    "title": "World War One",
+    "price": 19.99,
+    "description": "Мировая война за человечество",
+    "image": "world-war-one.jpg"
+  }
 ]
