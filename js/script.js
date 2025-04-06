@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Загружаем игры из JSON
-    fetch('data/games.json')
+    fetch('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/main/data/games.json')
         .then(response => response.json())
         .then(games => {
             const container = document.getElementById('games-container');
