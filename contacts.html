@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Vessel Horizon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Стили формы (добавьте в style.css) */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(0, 243, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #00f3ff;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .submit-btn {
+            background: #00f3ff;
+            color: #0a0a0a;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #0a0a0a;
+            color: #00f3ff;
+            box-shadow: 0 0 15px #00f3ff;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <header>
+        <h1>Vessel Horizon 🚀</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="games.html">Игры</a>
+            <a href="news.html">Новости</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-form">
+            <h2>Свяжитесь с нами</h2>
+            
+            
+            <form action="https://formspree.io/f/xnnpolny" method="POST">
+                <input 
+                    type="text" 
+                    name="name" 
+                    class="form-input" 
+                    placeholder="Ваше имя" 
+                    required
+                >
+                
+                <input 
+                    type="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="Ваш email" 
+                    required
+                >
+                
+                <textarea 
+                    name="message" 
+                    class="form-input" 
+                    rows="5" 
+                    placeholder="Ваше сообщение..." 
+                    required
+                ></textarea>
+                
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </section>
+        
+        <section class="contact-info">
+            <h3>Другие способы связи:</h3>
+            <p>Email: <a href="mailto:support@vesselhorizon.com">support@vesselhorizon.com</a></p>
+            <div class="social-links">
+                <a href="#" target="_blank">Discord</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">Steam</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
