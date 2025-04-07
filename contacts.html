@@ -7,16 +7,35 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Стили формы (добавьте в style.css) */
-        .contact-form {
-            max-width: 600px;
+        /* Общие стили для формы */
+        .contact-container {
+            max-width: 1000px;
             margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
             padding: 30px;
             background: rgba(0, 243, 255, 0.05);
             border-radius: 10px;
             border: 1px solid rgba(0, 243, 255, 0.3);
         }
         
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: rgba(0, 243, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
+        /* Стили формы */
         .form-input {
             width: 100%;
             padding: 12px;
@@ -50,11 +69,50 @@
             box-shadow: 0 0 15px #00f3ff;
         }
         
+        /* Стили для контактной информации */
+        .contact-info h3 {
+            color: #00f3ff;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .contact-info p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: #00f3ff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid #00f3ff;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: rgba(0, 243, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
         /* Адаптивность */
         @media (max-width: 768px) {
-            .contact-form {
+            .contact-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-form, .contact-info {
                 padding: 20px;
-                margin: 20px;
+                margin: 0 15px;
             }
         }
     </style>
@@ -73,47 +131,34 @@
         </nav>
     </header>
 
-    <main>
+    <main class="contact-container">
         <section class="contact-form">
             <h2>Свяжитесь с нами</h2>
             
-            
+            <!-- Форма обратной связи -->
             <form action="https://formspree.io/f/xnnpolny" method="POST">
-                <input 
-                    type="text" 
-                    name="name" 
-                    class="form-input" 
-                    placeholder="Ваше имя" 
-                    required
-                >
-                
-                <input 
-                    type="email" 
-                    name="email" 
-                    class="form-input" 
-                    placeholder="Ваш email" 
-                    required
-                >
-                
-                <textarea 
-                    name="message" 
-                    class="form-input" 
-                    rows="5" 
-                    placeholder="Ваше сообщение..." 
-                    required
-                ></textarea>
-                
+                <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                <input type="email" name="email" class="form-input" placeholder="Ваш email" required>
+                <textarea name="message" class="form-input" rows="5" placeholder="Ваше сообщение..." required></textarea>
                 <button type="submit" class="submit-btn">Отправить</button>
             </form>
         </section>
         
         <section class="contact-info">
-            <h3>Другие способы связи:</h3>
-            <p>Email: <a href="mailto:support@vesselhorizon.com">support@vesselhorizon.com</a></p>
+            <h3>Наши контакты</h3>
+            <p>
+                <strong>Email:</strong><br>
+                <a href="mailto:support@vesselhorizon.com">support@vesselhorizon.com</a>
+            </p>
+            
+            <p>
+                <strong>Социальные сети:</strong>
+            </p>
+            
             <div class="social-links">
-                <a href="#" target="_blank">Discord</a>
-                <a href="#" target="_blank">Twitter</a>
-                <a href="#" target="_blank">Steam</a>
+                <a href="https://discord.gg/ваша_ссылка" target="_blank">Discord</a>
+                <a href="https://twitter.com/ваша_ссылка" target="_blank">Twitter</a>
+                <a href="https://store.steampowered.com/ваша_ссылка" target="_blank">Steam</a>
             </div>
         </section>
     </main>
