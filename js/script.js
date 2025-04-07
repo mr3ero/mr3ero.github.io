@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="game-card" style="opacity:0; transform:translateY(20px)">
                 <h3>${game.title}</h3>
                 <p>${game.description}</p>
-                <button class="buy-button">Купить за $${game.price}</button>
+                <a href="${game.buy_link}" class="buy-button" target="_blank">Купить за $${game.price}</a>
             </div>
         `).join('');
 
