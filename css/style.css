@@ -114,3 +114,15 @@ max-width: 768px {
 .buy-button:hover {
     box-shadow: 0 0 15px #00f3ff;
 }
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #00f3ff;
+  color: white;
+}
