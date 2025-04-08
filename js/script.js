@@ -1,4 +1,4 @@
-// Инициализация EmailJS (замените YOUR_PUBLIC_KEY)
+// Инициализация EmailJS
 emailjs.init('cUOjbUcz3YXYffp4n');
 
 document.addEventListener('DOMContentLoaded', () => {
