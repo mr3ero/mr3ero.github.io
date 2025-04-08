@@ -1,5 +1,5 @@
 // Инициализация EmailJS
-emailjs.init('cUOjbUcz3YXYffp4n'); // Замените на ваш ключ
+emailjs.init('cUOjbUcz3YXYffp4n'); 
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Звёздный фон
