@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Вставьте те же meta-теги, что и в index.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости | Vessel Horizon</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .news-article {
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+        .news-date {
+            color: #00f3ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .news-article {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="stars"></div>
     
     <header>
-        <!-- Вставьте то же меню, что и в index.html -->
+        <h1>Vessel Horizon 🚀</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="games.html">Игры</a>
+            <a href="news.html">Новости</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
     </header>
 
-    <main>
-        <h2>Последние новости</h2>
+    <main class="container">
+        <h2 class="page-title">Последние новости</h2>
         <div id="news-container"></div>
     </main>
 
