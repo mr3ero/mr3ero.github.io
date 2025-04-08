@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 20px;
     line-height: 1.6;
-    position: relative; /* Добавил для звездного фона */
+    position: relative; /* Для звездного фона */
     overflow-x: hidden;
 }
 
