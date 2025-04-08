@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили для формы */
+        /* Общие стили */
         .contact-container {
             max-width: 1000px;
             margin: 40px auto;
@@ -47,10 +47,6 @@
             font-family: 'Roboto', sans-serif;
         }
         
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        
         .submit-btn {
             background: #00f3ff;
             color: #0a0a0a;
@@ -69,17 +65,12 @@
             box-shadow: 0 0 15px #00f3ff;
         }
         
-        /* Стили для контактной информации */
+        /* Стили контактов */
         .contact-info h3 {
             color: #00f3ff;
             font-family: 'Orbitron', sans-serif;
             margin-bottom: 20px;
             font-size: 1.5em;
-        }
-        
-        .contact-info p {
-            margin-bottom: 25px;
-            line-height: 1.6;
         }
         
         .social-links {
@@ -100,9 +91,8 @@
         
         .social-links a:hover {
             background: rgba(0, 243, 255, 0.2);
-            transform: translateY(-3px);
         }
-        
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .contact-container {
@@ -135,12 +125,12 @@
         <section class="contact-form">
             <h2>Свяжитесь с нами</h2>
             
-            <!-- Форма обратной связи -->
-            <form action="https://formspree.io/f/xnnpolny" method="POST">
-                <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
-                <input type="email" name="email" class="form-input" placeholder="Ваш email" required>
+            <!-- Форма с EmailJS -->
+            <form id="emailjs-form">
+                <input type="text" name="user_name" class="form-input" placeholder="Ваше имя" required>
+                <input type="email" name="user_email" class="form-input" placeholder="Ваш email" required>
                 <textarea name="message" class="form-input" rows="5" placeholder="Ваше сообщение..." required></textarea>
-                <button type="submit" class="submit-btn">Отправить</button>
+                <button type="submit" class="submit-btn" id="submit-btn">Отправить</button>
             </form>
         </section>
         
@@ -148,7 +138,7 @@
             <h3>Наши контакты</h3>
             <p>
                 <strong>Email:</strong><br>
-                <a href="mailto:support@vesselhorizon.com" style="color:#00bfff;">support@vesselhorizon.com</a>
+                <a href="mailto:support@vesselhorizon.com">support@vesselhorizon.com</a>
             </p>
             
             <p>
@@ -163,6 +153,8 @@
         </section>
     </main>
 
+    <!-- Подключение EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
