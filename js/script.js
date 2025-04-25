@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== 2. ЗАГРУЗКА ИГР (JSON) ===== //
   const gamesContainer = document.getElementById('games-container');
   if (gamesContainer) {
-    loadJSON('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/main/data/games.json', games => {
+    loadJSON('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/master/data/games.json', games => {
       gamesContainer.innerHTML = games.map((game, index) => `
         <div class="game-card" style="opacity:0; transform:translateY(20px)">
           <h3>${game.title}</h3>
