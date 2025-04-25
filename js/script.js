@@ -1,8 +1,8 @@
-// Инициализация EmailJS
-emailjs.init('cUOjbUcz3YXYffp4n');
-
 document.addEventListener('DOMContentLoaded', () => {
-  // ===== 1. ОБЩИЕ ФУНКЦИИ ===== //
+  // ===== 1. ИНИЦИАЛИЗАЦИЯ EMAILJS ===== //
+  emailjs.init('cUOjbUcz3YXYffp4n'); // Ваш Public Key
+
+  // ===== 2. ОБЩИЕ ФУНКЦИИ ===== //
   // Звёздный фон
   const stars = document.createElement('div');
   stars.className = 'stars';
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== 2. ЗАГРУЗКА ИГР (JSON) ===== //
+  // ===== 3. ЗАГРУЗКА ИГР ===== //
   const gamesContainer = document.getElementById('games-container');
   if (gamesContainer) {
     loadJSON('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/master/data/games.json', games => {
@@ -26,20 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="game-card" style="opacity:0; transform:translateY(20px)">
           <h3>${game.title}</h3>
           <p>${game.description}</p>
-          <a href="${game.buy_link || '#'}" class="buy-button" target="_blank">
+          <a href="${game.buy_link}" class="buy-button" target="_blank">
             Купить за $${game.price}
           </a>
         </div>
       `).join('');
-
       animateElements('.game-card');
     });
   }
 
-  // ===== 3. ЗАГРУЗКА НОВОСТЕЙ (JSON) ===== //
+  // ===== 4. ЗАГРУЗКА НОВОСТЕЙ ===== //
   const newsContainer = document.getElementById('news-container');
   if (newsContainer) {
-    loadJSON('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/main/data/news.json', news => {
+    loadJSON('https://raw.githubusercontent.com/mr3ero/mr3ero.github.io/master/data/news.json', news => {
       newsContainer.innerHTML = news.map((item, index) => `
         <article class="news-article" style="opacity:0; transform:translateY(20px)">
           <span class="news-date">${item.date}</span>
@@ -48,12 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
           ${item.image ? `<img src="assets/images/${item.image}" alt="${item.title}" loading="lazy">` : ''}
         </article>
       `).join('');
-
       animateElements('.news-article');
     });
   }
 
-  // ===== 4. ОТПРАВКА ФОРМЫ (EmailJS) ===== //
+  // ===== 5. ОБРАБОТКА ФОРМЫ ===== //
   const contactForm = document.getElementById('emailjs-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -69,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
           this.reset();
         })
         .catch(error => {
-          console.error('Ошибка EmailJS:', error);
+          console.error('Ошибка:', error);
           alert('Ошибка: ' + (error.text || 'Попробуйте позже'));
         })
         .finally(() => {
@@ -80,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ===== //
-  // Загрузка JSON
   function loadJSON(url, callback) {
     fetch(url)
       .then(response => {
@@ -95,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Анимация элементов
   function animateElements(selector) {
     document.querySelectorAll(selector).forEach((el, index) => {
       setTimeout(() => {
