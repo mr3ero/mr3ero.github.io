@@ -403,7 +403,7 @@
     <script>
     // Глобальные переменные для счетчика
     let currentCount = 0;
-    const targetCount = 507941;
+    const targetCount = 57941;
     let counterElement;
 
     // Анимация счетчика
@@ -433,7 +433,7 @@
     function updateCounter() {
         if (!counterElement) return;
         
-        currentCount = Math.max(0, currentCount - 69696); // Не меньше 0
+        currentCount = Math.max(0, currentCount - 6969); // Не меньше 0
         counterElement.textContent = Math.floor(currentCount).toLocaleString();
         
         // Анимация уменьшения
@@ -451,8 +451,8 @@
         const boom = document.createElement('div');
         boom.className = 'boom-effect';
         boom.textContent = '💥';
-        boom.style.left = `${x - 30}px`;
-        boom.style.top = `${y - 30}px`;
+        boom.style.left = `${x - 40}px`;
+        boom.style.top = `${y - 45}px`;
         document.body.appendChild(boom);
         
         setTimeout(() => boom.remove(), 800);
