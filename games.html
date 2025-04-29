@@ -6,10 +6,7 @@
     <title>Наши игры | Vessel Horizon</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        page-title{
-			text-align: center
-		}
-		body {
+        body {
             background: #0a0a0a;
             color: white;
             font-family: 'Roboto', sans-serif;
@@ -59,18 +56,63 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2em;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #00f3ff;
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #00f3ff;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2em;
+            margin: 30px 0;
+            color: #00f3ff;
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            margin: 15px auto;
         }
         
         .game-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            transition: transform 0.3s;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 700px;
+            transition: all 0.4s;
             opacity: 0;
-            animation: fadeIn 0.5s forwards;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s forwards;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         @keyframes fadeIn {
@@ -81,29 +123,78 @@
         .game-card:nth-child(2) { animation-delay: 0.3s; }
         .game-card:nth-child(3) { animation-delay: 0.5s; }
         
+        .game-card:hover {
+            transform: translateY(-5px) !important;
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.2);
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 300px;
+			object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+        
+        .game-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #00f3ff;
+        }
+        
+        .game-card p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: rgba(0, 243, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            margin-right: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
         .buy-button {
-            background: #00f3ff;
+            background: linear-gradient(45deg, #00f3ff, #0066ff);
             color: #0a0a0a;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Orbitron', sans-serif;
-            transition: 0.3s;
+            font-weight: bold;
+            transition: all 0.3s;
             display: inline-block;
             text-decoration: none;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         
         .buy-button:hover {
-            box-shadow: 0 0 15px #00f3ff;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .game-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
         
         max-width: 768px {
             nav {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
             
             h1 {
@@ -111,14 +202,47 @@
             }
             
             .game-card {
-                padding: 15px;
-                margin: 10px;
+                padding: 20px;
+                margin: 20px 10px;
             }
+            
+            .game-image {
+                height: 200px;
+            }
+            
+            .game-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+        
+        /* Дополнительные украшения */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 243, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+        
+        @keyframes float-particle {
+            to { transform: translateY(-100vh); }
         }
     </style>
 </head>
 <body>
     <div class="stars"></div>
+    <div class="floating-particles" id="particles"></div>
     
     <header>
         <h1>Vessel Horizon 🚀</h1>
@@ -135,28 +259,68 @@
         <h2 class="page-title">Наши игры</h2>
         
         <div class="game-card">
+            <img src="img/news1.jpg" alt="Space Odyssey" class="game-image">
             <h3>Space Odyssey</h3>
-            <p>Исследуйте галактики в роли капитана корабля</p>
-            <a href="https://store.steampowered.com/app/2435980" class="buy-button" target="_blank">
-				Купить за 1499 рублей
-            </a>
+            <p>Исследуйте галактики в роли капитана корабля. Вас ждут невероятные приключения, загадочные планеты и опасные космические битвы.</p>
+            <div class="game-footer">
+                <span class="price-tag">1499 руб.</span>
+                <a href="https://store.steampowered.com/app/2435980" class="buy-button" target="_blank">
+                    Купить сейчас
+                </a>
+            </div>
         </div>
-        
-        <div class="game-card">
+		<div class="game-card">
+            <img src="img/news3.jpg" alt="Galactic Wars EX" class="game-image">
             <h3>Galactic Wars EX</h3>
-            <p>Сразитесь за контроль над вселенной</p>
-            <a href="https://store.steampowered.com/app/1844170" class="buy-button" target="_blank">
-                Купить за 999 рублей
-            </a>
+            <p>Сразитесь за контроль над вселенной в этой эпичной космической стратегии. Создайте свою империю и доминируйте в галактике!</p>
+            <div class="game-footer">
+                <span class="price-tag">999 руб.</span>
+                <a href="https://store.steampowered.com/app/1844170" class="buy-button" target="_blank">
+                    Купить сейчас
+                </a>
+            </div>
         </div>
         
         <div class="game-card">
-            <h3>World War I</h3>
-            <p>Мировая война за человечество</p>
-            <a href="https://store.steampowered.com/app/361380" class="buy-button" target="_blank">
-                Купить за 899 рублей
-            </a>
+            <img src="img/news4.jpg" alt="World War I" class="game-image">
+            <h3>Stellar Empires</h3>
+            <p>Стратегия, в которой вы берете под свой контроль империю и ведете ее к полному господству, колонизируя новые планеты!.</p>
+            <div class="game-footer">
+                <span class="price-tag">899 руб.</span>
+                <a href="https://store.steampowered.com/app/2343320" class="buy-button" target="_blank">
+                    Купить сейчас
+                </a>
+            </div>
         </div>
     </main>
+
+    <script>
+        // Создание плавающих частиц
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 5 + 1;
+                const posX = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
 </body>
 </html>

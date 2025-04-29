@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vessel Horizon — Космические игры</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<style>
+    <style>
+        /* Основные стили */
         body {
             background: #0a0a0a;
             color: white;
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
         }
         
+        /* Звездный фон */
         .stars {
             position: fixed;
             top: 0;
@@ -27,9 +28,11 @@
             z-index: -1;
             background: 
                 radial-gradient(2px 2px at 20% 30%, #fff, rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 80% 70%, #fff, rgba(255,255,255,0));
+                radial-gradient(2px 2px at 40% 70%, #fff, rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 60% 20%, #fff, rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 80% 50%, #fff, rgba(255,255,255,0));
             background-size: 200px 200px;
-            opacity: 0.3;
+            opacity: 0.5;
             animation: stars 100s linear infinite;
         }
         
@@ -40,16 +43,17 @@
         
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 30px 0;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
             color: #00f3ff;
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5em;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            font-size: 2.8em;
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+            margin-bottom: 20px;
         }
         
         nav a {
@@ -57,72 +61,217 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2em;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            position: relative;
         }
         
-        .game-card {
+        nav a:hover {
+            color: #00f3ff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #00f3ff;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 30px rgba(0, 243, 255, 0.4); }
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Варианты дополнений */
+        
+        /* 1. Анимированная кнопка CTA */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00f3ff, #0066ff);
+            color: #0a0a0a;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 10px;
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+            transition: all 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.6);
+        }
+        
+        /* 2. Лучшие игры (превью) */
+        .featured-games {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .game-preview {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            transition: transform 0.3s;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
+            width: 250px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 243, 255, 0.2);
         }
         
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        .game-preview:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.2);
+            border-color: rgba(0, 243, 255, 0.5);
         }
         
-        .game-card:nth-child(1) { animation-delay: 0.1s; }
-        .game-card:nth-child(2) { animation-delay: 0.3s; }
-        .game-card:nth-child(3) { animation-delay: 0.5s; }
-        
-        .buy-button {
-            background: #00f3ff;
-            color: #0a0a0a;
-            border: none;
-            padding: 10px 20px;
+        .game-preview img {
+            width: 100%;
             border-radius: 5px;
-            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        /* 3. Счетчик запусков */
+        .launch-counter {
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
+        .counter-number {
             font-family: 'Orbitron', sans-serif;
-            transition: 0.3s;
+            font-size: 3em;
+            color: #00f3ff;
+            margin: 10px 0;
+        }
+        
+        /* 4. Новостная лента */
+        .news-ticker {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            margin: 40px 0;
+            border-top: 1px solid #00f3ff;
+            border-bottom: 1px solid #00f3ff;
+            overflow: hidden;
+        }
+        
+        .ticker-content {
             display: inline-block;
-            text-decoration: none;
-            margin-top: 15px;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
         }
         
-        .buy-button:hover {
-            box-shadow: 0 0 15px #00f3ff;
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         
+        /* 5. Интерактивный космический корабль */
+        .spaceship {
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path fill="%2300f3ff" d="M50 10L20 90H80L50 10Z"/></svg>') no-repeat center;
+            margin: 50px auto;
+            animation: fly 10s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.7));
+        }
+        
+        @keyframes fly {
+            0% { transform: translateX(-100px) rotate(-15deg); }
+            50% { transform: translateX(calc(100vw - 200px)) rotate(15deg); }
+            100% { transform: translateX(-100px) rotate(-15deg); }
+        }
+		@keyframes float-1 {
+		  0%, 100% { transform: translateY(0) rotate(0deg); }
+		  50% { transform: translateY(-50px) rotate(180deg); }
+		}
+		@keyframes float-2 {
+		  0%, 100% { transform: translateY(20px) rotate(0deg); }
+		  50% { transform: translateY(-30px) rotate(120deg); }
+		}
+		@keyframes float-3 {
+		  0%, 100% { transform: translateY(10px) rotate(0deg); }
+		  50% { transform: translateY(-20px) rotate(90deg); }
+		}
+        
+        /* Адаптивность */
         max-width: 768px {
-            nav {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
-            
             h1 {
                 font-size: 2em;
             }
             
-            .game-card {
-                padding: 15px;
-                margin: 10px;
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8em;
             }
         }
     </style>
 </head>
 <body>
+    <div class="stars"></div>
+    
     <header>
         <h1>Vessel Horizon 🚀</h1>
         <nav>
             <a href="index.html">Главная</a>
             <a href="games.html">Игры</a>
             <a href="news.html">Новости</a>
-            <a href="about.html">Как мы работаем</a>
+            <a href="about.html">О нас</a>
             <a href="contacts.html">Контакты</a>
         </nav>
     </header>
@@ -130,8 +279,96 @@
     <section class="hero">
         <h2>Космические приключения начинаются здесь!</h2>
         <p>Игры от геймеров для геймеров</p>
+		<!-- Вариант 1: Кнопка CTA -->
+        <a href="games.html" class="cta-button">Исследовать игры</a>
+        
+        <!-- Вариант 2: Превью лучших игр -->
+        <div class="featured-games">
+            <div class="game-preview">
+                <img src="	img/news1.jpg" alt="Space Odyssey">
+                <h3>Space Odyssey</h3>
+                <p>Исследуйте галактики</p>
+                <a href="games.html" class="buy-button">Подробнее</a>
+            </div>
+            <div class="game-preview">
+                <img src="img/news3.jpg" alt="Galactic Wars EX">
+                <h3>Galactic Wars EX</h3>
+                <p>Эпические космические битвы</p>
+                <a href="games.html" class="buy-button">Подробнее</a>
+            </div>
+        </div>
+        
+        <!-- Вариант 3: Счетчик запусков -->
+        <div class="launch-counter">
+            <p>Всего игроков в нашей вселенной:</p>
+            <div class="counter-number">0</div>
+            <small>и их число растёт!</small>
+        </div>
+        
+        <!-- Вариант 4: Новостная лента -->
+        <div class="news-ticker">
+            <div class="ticker-content">
+                🚀 Скоро выйдет Space Odyssey 2.0! • 🎮 Galactic Wars EX получил обновление 1.5 • 💡 Новый проект в разработке • 🌌 15% скидка на все игры до конца месяца •
+            </div>
+        </div>
+        
+        <!-- Вариант 5: Анимированный корабль -->
+        <div class="asteroids-field" style="position: relative; height: 200px; margin: 80px 0;">
+		  <div class="asteroid" style="
+			position: absolute;
+			width: 80px; height: 80px;
+			background: #6d4c41;
+			border-radius: 50%;
+			box-shadow: inset 10px -5px 0 0 #5d4037;
+			animation: float-1 8s linear infinite;
+			left: 10%;
+		  "></div>
+		  
+		  <div class="asteroid" style="
+			position: absolute;
+			width: 50px; height: 50px;
+			background: #5d4037;
+			border-radius: 50%;
+			box-shadow: inset -8px 5px 0 0 #4e342e;
+			animation: float-2 12s linear infinite;
+			left: 30%;
+			top: 50px;
+		  "></div>
+		  
+		  <div class="asteroid" style="
+			position: absolute;
+			width: 30px; height: 30px;
+			background: #4e342e;
+			border-radius: 50%;
+			box-shadow: inset 5px -2px 0 0 #3e2723;
+			animation: float-3 15s linear infinite;
+			left: 70%;
+			top: 30px;
+		  "></div>
+		</div>
     </section>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Простая анимация счетчика
+        const counter = document.querySelector('.counter-number');
+        if (counter) {
+            let count = 0;
+            const target = 37941;
+            const duration = 3000;
+            const step = target / (duration / 16);
+            
+            const updateCounter = () => {
+                count += step;
+                if (count < target) {
+                    counter.textContent = Math.floor(count).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            };
+            
+            setTimeout(updateCounter, 1000);
+        }
+    </script>
 </body>
 </html>

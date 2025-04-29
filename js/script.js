@@ -1,6 +1,6 @@
 let isEmailJSLoaded = false;
 
-// Встроенные данные вместо JSON
+
 const gamesData = [
   {
     title: "Space Odyssey",
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await checkEmailJS();
     initStars();
     setupMenuAnimation();
-    loadAllData(); // Убрал async/await, так как данные теперь локальные
+    loadAllData(); 
     setupContactForm();
   } catch (error) {
     console.error('Init error:', error);
