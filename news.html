@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Новости | Vessel Horizon</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(2px 2px at 20% 30%, #fff, rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 80% 70%, #fff, rgba(255,255,255,0));
+            background-size: 200px 200px;
+            opacity: 0.3;
+            animation: stars 100s linear infinite;
+        }
+        
+        @keyframes stars {
+            from { background-position: 0 0; }
+            to { background-position: -200px 200px; }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        
+        h1 {
+            color: #00f3ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        
         .news-article {
             background: rgba(0, 243, 255, 0.05);
             border: 1px solid rgba(0, 243, 255, 0.3);
@@ -14,15 +66,39 @@
             padding: 20px;
             margin-bottom: 30px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease-out;
+            animation: fadeIn 0.5s forwards;
         }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .news-article:nth-child(1) { animation-delay: 0.1s; }
+        .news-article:nth-child(2) { animation-delay: 0.3s; }
+        
         .news-date {
             color: #00f3ff;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9em;
         }
-        @media (max-width: 768px) {
+        
+        .news-article img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        max-width: 768px {
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
             .news-article {
                 padding: 15px;
             }
@@ -45,9 +121,20 @@
 
     <main class="container">
         <h2 class="page-title">Последние новости</h2>
-        <div id="news-container"></div>
+        
+        <article class="news-article">
+            <span class="news-date">15.03.2025</span>
+            <h3>Запуск Space Odyssey</h3>
+            <p>Наша первая игра выходит в релиз!</p>
+            <img src="img/news1.jpg" alt="Запуск игры" loading="lazy">
+        </article>
+        
+        <article class="news-article">
+            <span class="news-date">10.03.2025</span>
+            <h3>Новое обновление</h3>
+            <p>Добавлены новые космические корабли.</p>
+            <img src="img/news2.jpg"alt="Обновление" loading="lazy">
+        </article>
     </main>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
