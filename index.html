@@ -260,6 +260,54 @@
                 font-size: 1.8em;
             }
         }
+		.asteroid {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 10;
+        }
+        
+        .asteroid:hover {
+            transform: scale(1.1);
+        }
+        
+        .boom-effect {
+            position: absolute;
+            font-size: 40px;
+            pointer-events: none;
+            z-index: 20;
+            animation: boom 0.8s forwards;
+        }
+        
+        @keyframes boom {
+            0% { transform: scale(0.5); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+		.boom-effect {
+			position: fixed;
+			font-size: 60px;
+			z-index: 1000;
+			pointer-events: none;
+			animation: boom-anim 0.8s forwards;
+			transform-origin: center;
+		}
+
+		@keyframes boom-anim {
+			0% { 
+				transform: scale(0.5); 
+				opacity: 1;
+			}
+			50% {
+				transform: scale(1.5);
+				opacity: 0.8; 
+			}
+			100% { 
+				transform: scale(2.5); 
+				opacity: 0;
+			}
+		}
     </style>
 </head>
 <body>
@@ -314,61 +362,139 @@
         
         <!-- Вариант 5: Анимированный корабль -->
         <div class="asteroids-field" style="position: relative; height: 200px; margin: 80px 0;">
-		  <div class="asteroid" style="
-			position: absolute;
-			width: 80px; height: 80px;
-			background: #6d4c41;
-			border-radius: 50%;
-			box-shadow: inset 10px -5px 0 0 #5d4037;
-			animation: float-1 8s linear infinite;
-			left: 10%;
-		  "></div>
-		  
-		  <div class="asteroid" style="
-			position: absolute;
-			width: 50px; height: 50px;
-			background: #5d4037;
-			border-radius: 50%;
-			box-shadow: inset -8px 5px 0 0 #4e342e;
-			animation: float-2 12s linear infinite;
-			left: 30%;
-			top: 50px;
-		  "></div>
-		  
-		  <div class="asteroid" style="
-			position: absolute;
-			width: 30px; height: 30px;
-			background: #4e342e;
-			border-radius: 50%;
-			box-shadow: inset 5px -2px 0 0 #3e2723;
-			animation: float-3 15s linear infinite;
-			left: 70%;
-			top: 30px;
-		  "></div>
+			<div class="asteroid" data-index="0" style="
+				position: absolute;
+				width: 80px; height: 80px;
+				background: #6d4c41;
+				border-radius: 50%;
+				box-shadow: inset 10px -5px 0 0 #5d4037;
+				animation: float-1 8s linear infinite;
+				left: 10%;
+				top: 20%;
+				cursor: pointer;
+			"></div>
+			
+			<div class="asteroid" data-index="1" style="
+				position: absolute;
+				width: 50px; height: 50px;
+				background: #5d4037;
+				border-radius: 50%;
+				box-shadow: inset -8px 5px 0 0 #4e342e;
+				animation: float-2 12s linear infinite;
+				left: 30%;
+				top: 50px;
+				cursor: pointer;
+			"></div>
+			
+			<div class="asteroid" data-index="2" style="
+				position: absolute;
+				width: 30px; height: 30px;
+				background: #4e342e;
+				border-radius: 50%;
+				box-shadow: inset 5px -2px 0 0 #3e2723;
+				animation: float-3 15s linear infinite;
+				left: 70%;
+				top: 30px;
+				cursor: pointer;
+			"></div>
 		</div>
     </section>
 
     <script>
-        // Простая анимация счетчика
-        const counter = document.querySelector('.counter-number');
-        if (counter) {
-            let count = 0;
-            const target = 37941;
-            const duration = 3000;
-            const step = target / (duration / 16);
-            
-            const updateCounter = () => {
-                count += step;
-                if (count < target) {
-                    counter.textContent = Math.floor(count).toLocaleString();
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target.toLocaleString();
-                }
-            };
-            
-            setTimeout(updateCounter, 1000);
+    // Глобальные переменные для счетчика
+    let currentCount = 0;
+    const targetCount = 507941;
+    let counterElement;
+
+    // Анимация счетчика
+    function initCounter() {
+        counterElement = document.querySelector('.counter-number');
+        if (!counterElement) return;
+
+        currentCount = 0;
+        const duration = 3000;
+        const step = targetCount / (duration / 16);
+        
+        const updateCounter = () => {
+            currentCount += step;
+            if (currentCount < targetCount) {
+                counterElement.textContent = Math.floor(currentCount).toLocaleString();
+                requestAnimationFrame(updateCounter);
+            } else {
+                currentCount = targetCount;
+                counterElement.textContent = targetCount.toLocaleString();
+            }
+        };
+        
+        setTimeout(updateCounter, 500);
+    }
+
+    // Обновление счетчика (уменьшение на 1000)
+    function updateCounter() {
+        if (!counterElement) return;
+        
+        currentCount = Math.max(0, currentCount - 69696); // Не меньше 0
+        counterElement.textContent = Math.floor(currentCount).toLocaleString();
+        
+        // Анимация уменьшения
+        counterElement.style.transform = 'scale(1.2)';
+        counterElement.style.color = '#ff5555';
+        
+        setTimeout(() => {
+            counterElement.style.transform = 'scale(1)';
+            counterElement.style.color = '#00f3ff';
+        }, 500);
+    }
+
+    // Взрыв астероида
+    function createExplosion(x, y) {
+        const boom = document.createElement('div');
+        boom.className = 'boom-effect';
+        boom.textContent = '💥';
+        boom.style.left = `${x - 30}px`;
+        boom.style.top = `${y - 30}px`;
+        document.body.appendChild(boom);
+        
+        setTimeout(() => boom.remove(), 800);
+        
+        // Звук взрыва
+        try {
+            const sound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3');
+            sound.volume = 0.2;
+            sound.play();
+        } catch(e) {
+            console.log("Sound error:", e);
         }
-    </script>
+        
+        // Уменьшаем счетчик
+        updateCounter();
+    }
+
+    // Инициализация астероидов
+    function initAsteroids() {
+        const asteroids = document.querySelectorAll('.asteroid');
+        if (!asteroids.length) return;
+        
+        asteroids.forEach(asteroid => {
+            asteroid.style.display = 'block';
+            
+            asteroid.addEventListener('click', (e) => {
+                // Координаты клика
+                const rect = asteroid.getBoundingClientRect();
+                const x = rect.left + rect.width/2;
+                const y = rect.top + rect.height/2;
+                
+                createExplosion(x, y);
+                asteroid.style.display = 'none';
+            });
+        });
+    }
+
+    // Инициализация при загрузке
+    document.addEventListener('DOMContentLoaded', () => {
+        initCounter();
+        initAsteroids();
+    });
+</script>
 </body>
 </html>

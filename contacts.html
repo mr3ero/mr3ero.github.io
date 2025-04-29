@@ -334,7 +334,7 @@
         });
 
         // Инициализация EmailJS (замените на свои данные)
-        emailjs.init('YOUR_PUBLIC_KEY');
+        emailjs.init('cUOjbUcz3YXYffp4n');
         
         // Обработка формы
         const contactForm = document.getElementById('emailjs-form');
@@ -347,7 +347,7 @@
                 btn.disabled = true;
                 btn.textContent = 'Отправка...';
                 
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                emailjs.sendForm('service_j2ozsow', 'template_i09dpa7', this)
                     .then(() => {
                         alert('Сообщение отправлено!');
                         this.reset();
@@ -372,6 +372,7 @@
                 75% { transform: translate(10vw, 30vh) rotate(270deg); }
                 100% { transform: translate(0, 0) rotate(360deg); }
             }
+			
             
             @keyframes float-ufo {
                 0% { transform: translate(0, 0) rotate(0deg); }
