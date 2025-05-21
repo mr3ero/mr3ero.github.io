@@ -319,14 +319,14 @@
             let newX = Math.min(x, 85); // Не больше 85vw
             let newY = Math.min(y, 85); // Не больше 85vh
             
-            // Применяем корректировки
+            // Применяются корректировки
             element.style.left = newX + 'vw';
             element.style.top = newY + 'vh';
             
             return { x: newX, y: newY };
         }
 
-        // Устанавливаем начальные позиции с проверкой
+        // Устанавливаются начальные позиции с проверкой
         icons.forEach(icon => {
             const pos = ensureVisible(icon.element, icon.startX, icon.startY);
             icon.x = pos.x;
