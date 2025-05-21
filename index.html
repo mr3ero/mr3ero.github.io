@@ -113,7 +113,7 @@
         
         
         
-        /* 1. Анимированная кнопка CTA */
+        /*  Анимированная кнопка CTA */
         .cta-button {
             display: inline-block;
             background: linear-gradient(45deg, #00f3ff, #0066ff);
@@ -141,7 +141,7 @@
             box-shadow: 0 10px 25px rgba(0, 243, 255, 0.6);
         }
         
-        /* 2. Лучшие игры (превью) */
+        /*  Лучшие игры (превью) */
         .featured-games {
             display: flex;
             justify-content: center;
@@ -173,7 +173,7 @@
             margin-bottom: 15px;
         }
         
-        /* 3. Счетчик запусков */
+        /*  Счетчик запусков */
         .launch-counter {
             background: rgba(0, 243, 255, 0.1);
             border-radius: 10px;
@@ -191,7 +191,7 @@
             margin: 10px 0;
         }
         
-        /* 4. Новостная лента */
+        /*  Новостная лента */
         .news-ticker {
             background: rgba(0, 0, 0, 0.5);
             padding: 15px;
@@ -212,7 +212,7 @@
             100% { transform: translateX(-100%); }
         }
         
-        /* 5. Интерактивный космический корабль */
+        /*  Интерактивный космический корабль */
         .spaceship {
             width: 100px;
             height: 100px;
@@ -429,11 +429,11 @@
         setTimeout(updateCounter, 500);
     }
 
-    // Обновление счетчика (уменьшение на 6969)
+    // Обновление счетчика (уменьшение на 5678)
     function updateCounter() {
         if (!counterElement) return;
         
-        currentCount = Math.max(0, currentCount - 6969); // Не меньше 0
+        currentCount = Math.max(0, currentCount - 5678); 
         counterElement.textContent = Math.floor(currentCount).toLocaleString();
         
         // Анимация уменьшения
