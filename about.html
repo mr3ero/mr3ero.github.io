@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Подкасты и радио</title>
+    <title>О нас</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            text-align: left;
+        }
+        .stat-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--purple);
+        }
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--purple);
+        }
+        .contact-section {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 10px 15px;
+            font-weight: bold;
+            border-bottom: 2px solid var(--purple);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +46,7 @@
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="index.html">Подкасты</a></li>
-                <li><a href="index.html">О нас</a></li>
+                <li><a href="about.html">О нас</a></li>
             </ul>
         </nav>
     </header>
@@ -21,18 +54,45 @@
     <main class="container">
         <section class="hero">
             <h1>Мы начинающая команда подкастеров</h1>
-            <p>123</p>
+            <p>Создаем качественный аудиоконтент для тех, кто хочет развиваться и узнавать новое каждый день</p>
             
-            <div class="player-card">
-                
-                <div class="player-info">
+            <div class="about-grid">
+                <div class="content-text">
+                    <h2>Наша миссия</h2>
+                    <p>RADIOWEB начался в 2025 году как небольшой студенческий проект. Сегодня мы — это команда энтузиастов, объединенных общей идеей: делать сложные темы доступными через звук.</p>
+                    <p>Мы верим, что подкасты — это самый искренний формат общения в 2025 году.</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <p>Выпусков записано</p>
+                    </div>
+                    <br>
+                    <div class="stat-box">
+                        <span class="stat-number">5000+</span>
+                        <p>Постоянных слушателей</p>
+                    </div>
                 </div>
             </div>
-            
-           
-            
+
+            <div class="contact-section">
+                <h2>Сотрудничество</h2>
+                <p>Хотите стать гостем нашего выпуска или предложить идею? Пишите нам!</p>
+                <div class="social-links">
+                    <a href="#">Макс</a>
+                    <a href="#">Вконтакте</a>
+                    <a href="#">Почта</a>
+                </div>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <p style="text-align: center; padding: 40px; color: #64748b;">
+            &copy; 2025 RADIOWEB Team. Все права защищены.
+        </p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
