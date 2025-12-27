@@ -104,3 +104,34 @@ a:hover {
     font-weight: bold;
 }
 }
+@media (max-width: 430px) {
+    .player-card {
+        flex-direction: column; text-align: center;
+    }
+    .controls button {
+    background: var(--purple);
+    border: none;
+    padding: 15px 25px;
+    margin: -1px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+}
+@media (max-width: 320px) {
+    .player-card {
+        flex-direction: column; text-align: center;
+    }
+    .controls button {
+    background: var(--purple);
+    border: none;
+    padding: 15px 25px;
+    margin: 1px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+}
+
