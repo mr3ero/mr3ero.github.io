@@ -1,0 +1,106 @@
+:root {
+    --purple: #6366f1;
+    --dark: #0f172a;
+    --light: #f8fafc;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #1e293b;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--purple); 
+}
+
+ul {
+    display: flex; list-style: none; gap: 20px;
+}
+
+a {
+    color: var(--light); text-decoration: none; transition: 0.3s;
+}
+a:hover {
+    color: var(--purple);
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 0;
+}
+.hero h1{
+    font-size: 40px;
+}
+.hero p{
+    font-size: 20px;
+}
+
+
+.player-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+#track-art {
+    border-radius: 12px;
+    width: 120px;
+    height: 120px;
+}
+
+.controls button {
+    background: var(--purple);
+    border: none;
+    padding: 10px 25px;
+    margin: 2px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .player-card {
+        flex-direction: column; text-align: center;
+    }
+    .controls button {
+    background: var(--purple);
+    border: none;
+    padding: 5px 5px;
+    margin: 0px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+}

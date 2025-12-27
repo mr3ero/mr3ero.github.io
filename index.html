@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подкасты и радио</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RADIO<span>WEB</span></div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html">Подкасты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Слушайте подкасты</h1>
+            <p>Актуальные темы, высокое качество звука</p>
+            
+            <div class="player-card">
+                <img src="podcast.jpg" alt="Обложка подкаста" id="track-art">
+                <div class="player-info">
+                    <h2 id="track-name">Загрузка...</h2>
+                    <p id="track-artist">Подкаст №1</p>
+                    <audio id="audio-player" src="sound.mp3"></audio>
+                    <div class="controls">
+                        <button id="prev">◀ Назад</button>
+                        <button id="play-pause">Play</button>
+                        <button id="next">Вперед ▶</button>
+                        <input type="range" id="volume" min="0" max="1" step="0.05" value="0.5">
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
