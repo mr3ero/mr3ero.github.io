@@ -4,6 +4,7 @@ const volumeSlider = document.getElementById('volume');
 const trackName = document.getElementById('track-name');
 const trackArtist = document.getElementById('track-artist');
 const trackArt = document.getElementById('track-art');
+const TrackNumber = document.getElementById('track-number');
 
 // Массив треков
 const tracks = [
