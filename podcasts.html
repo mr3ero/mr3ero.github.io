@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts | MusicBox</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+ 
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px 0;
+        }
+
+        .podcast-item {
+            background: #1e293b;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .podcast-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--purple);
+        }
+
+        .podcast-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .podcast-content {
+            padding: 20px;
+        }
+
+        .podcast-tag {
+            background: var(--purple);
+            color: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .podcast-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .podcast-content p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .btn-listen {
+            display: inline-block;
+            color: var(--purple);
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid var(--purple);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-listen:hover {
+            background: var(--purple);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Music<span>Box</span></div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="podcasts.html" style="color: var(--purple);">Подкасты</a></li>
+                <li><a href="#">Библиотека</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h1>Наши Подкасты</h1>
+        <p>Слушайте лучшие истории и интервью в 2025 году.</p>
+    </section>
+
+    <div class="podcast-grid">
+       
+        <div class="podcast-item">
+            <img src="podcast.jpg" alt="Обложка" class="podcast-cover">
+            <div class="podcast-content">
+                <span class="podcast-tag">Технологии</span>
+                <h3>Тема 1: Нереальный чел</h3>
+                <p>Обсуждаем будущее йоу</p>
+                <a href="index.html" id="track-number" number-track="1" class="btn-listen">Слушать выпуск</a>
+            </div>
+        </div>
+
+   
+        <div class="podcast-item">
+            <img src="podcast2.jpg" alt="Обложка" class="podcast-cover">
+            <div class="podcast-content">
+                <span class="podcast-tag">Жизнь</span>
+                <h3>Тема 2: Крутой перец</h3>
+                <p>Как стать таким же крутым как он</p>
+                <a href="index.html" class="btn-listen">Слушать выпуск</a>
+            </div>
+        </div>
+
+
+        <div class="podcast-item">
+            <img src="podcast3.jpg" alt="Обложка" class="podcast-cover">
+            <div class="podcast-content">
+                <span class="podcast-tag">Музыка</span>
+                <h3>Тема 3: Чумачечий чувак</h3>
+                <p>Разбор главных хитов хайп</p>
+                <a href="index.html" class="btn-listen">Слушать выпуск</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <p style="text-align: center; padding: 40px; color: #64748b;">
+        &copy; 2025 RADIOWEB Team. Все права защищены.
+    </p>
+</footer>
+
+</body>
+</html>
